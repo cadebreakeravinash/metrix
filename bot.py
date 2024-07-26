@@ -4,8 +4,8 @@ import logging
 from aiogram import Bot
 import asyncio
 
-API_TOKEN = '7193772857:AAF_JCnwg4tMg1XDVlRkRGXgADMxUXo2frM'
-ADMIN_ID = '5924790094'
+API_TOKEN = '7244429853:AAFD_sdfSY5gwGnj5JxmNvVE_dqeKtM7OIg'
+ADMIN_ID = '6682104026'
 MAX_RESTARTS = 5
 RESTART_PERIOD = 60  # Seconds
 
@@ -14,7 +14,7 @@ bot = Bot(API_TOKEN)
 
 async def start_bot():
     """Start the bot script as a subprocess."""
-    process = await asyncio.create_subprocess_exec('python3', 'vaibhav.py')
+    process = await asyncio.create_subprocess_exec('python3', 'm.py')
     return process
 
 async def notify_admin(message):
